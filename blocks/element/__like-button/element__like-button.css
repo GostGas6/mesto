@@ -1,5 +1,10 @@
 .element__like-button {
     cursor: pointer;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 22px;
+    max-height: 19px;
 }
 
 .element__like-button:hover {
