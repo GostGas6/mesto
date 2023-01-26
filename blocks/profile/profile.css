@@ -2,7 +2,8 @@
     max-width: 880px;
     min-height: 120px;
     position: relative;
-    display: flex;
+    display: grid;
+    grid-template-columns: 168.75px 1fr 150px;
     padding-top: 40px;
     padding-left: 200px;
     padding-right: 200px;
