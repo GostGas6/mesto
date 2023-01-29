@@ -14,5 +14,6 @@
     .profile {
         max-width: 282px;
         grid-template-columns: 282px;
+        margin: 0 auto;
     }
 }
