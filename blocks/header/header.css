@@ -9,3 +9,10 @@
     margin-right: 200px;
     border-bottom: 1px solid #545454;
 }
+
+@media screen and (max-width: 680px) {
+    .header {
+        margin-right: 100px;
+        margin-left: 100px;
+    }
+}

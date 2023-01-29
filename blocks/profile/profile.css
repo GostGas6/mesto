@@ -9,3 +9,10 @@
     padding-right: 200px;
     padding-bottom: 51px;
 }
+
+@media screen and (max-width: 1060px) {
+    .profile {
+        max-width: 282px;
+        grid-template-columns: 282px;
+    }
+}

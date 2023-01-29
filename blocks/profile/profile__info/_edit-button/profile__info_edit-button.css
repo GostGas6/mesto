@@ -8,3 +8,7 @@
     margin-top: 15px;
     cursor: pointer;
 }
+
+.profile__info_edit-button:hover {
+    opacity: 0.6;
+}
