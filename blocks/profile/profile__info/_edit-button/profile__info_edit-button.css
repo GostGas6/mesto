@@ -1,8 +1,8 @@
 .profile__info_edit-button {
     padding: 7px;
     border: 1px solid #fff;
-    max-width: 24px;
-    max-height: 24px;
+    max-width: 10px;
+    max-height: 10px;
     margin: 0;
     margin-bottom: 16px;
     margin-top: 15px;
@@ -11,4 +11,14 @@
 
 .profile__info_edit-button:hover {
     opacity: 0.6;
+}
+
+@media screen and (max-width: 320px) {
+    .profile__info_edit-button {
+        margin: 0;
+        margin-top: 8px;
+        width: 7.5px;
+        min-height: 7.5px;
+        padding: 5.25px;
+    }
 }

@@ -3,7 +3,7 @@
     min-height: 120px;
     position: relative;
     display: grid;
-    grid-template-columns: 168.75px 1fr 150px;
+    grid-template-columns: 120px 1fr 150px;
     padding-top: 40px;
     padding-left: 200px;
     padding-right: 200px;
@@ -12,8 +12,14 @@
 
 @media screen and (max-width: 1060px) {
     .profile {
-        max-width: 282px;
         grid-template-columns: 282px;
         margin: 0 auto;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .profile {
+        padding: 42px 19px 36px 19px;
     }
 }
