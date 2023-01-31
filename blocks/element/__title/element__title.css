@@ -1,5 +1,5 @@
 .element__title {
-    height: 23px;
+    min-height: 23px;
     color: black;
     font-weight: 900;
     font-size: 24px;
@@ -8,4 +8,7 @@
     margin-top: 25px;
     margin-left: 21px;
     margin-bottom: 31px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }

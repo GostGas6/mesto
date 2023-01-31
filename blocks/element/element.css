@@ -1,9 +1,7 @@
 .element {
     max-width: 282px;
     max-height: 361px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+
     background-color: #fff;
     border-radius: 10px;
 }
