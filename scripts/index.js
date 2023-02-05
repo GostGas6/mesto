@@ -1,6 +1,6 @@
-const openEdit = document.querySelector('.profile__info_edit-button');
+const openEdit = document.querySelector('.profile__info-edit-button');
 const popup = document.querySelector('.popup');
-const closeEdit = document.querySelector('.popup__container_close-icon');
+const closeEdit = document.querySelector('.popup__container-close-icon');
 const nameInput = document.querySelector('.popup__container-name');
 const jobInput = document.querySelector('.popup__container-text');
 const nameValue = document.querySelector('.profile__info-title');
@@ -20,7 +20,7 @@ function transferText() {
     openEditClick();
 }
 
-const formElement = document.querySelector('.popup__container_button-save');
+const formElement = document.querySelector('.popup__container-button-save');
 
 function handleFormSubmit(event) {
     event.preventDefault();

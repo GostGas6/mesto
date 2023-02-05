@@ -1,9 +1,9 @@
-.profile__add-button_vector {
+.profile__add-button-vector {
     margin: 14px 64px;
 }
 
 @media screen and (max-width: 1060px) {
-    .profile__add-button_vector {
+    .profile__add-button-vector {
         margin: 17px 132px;
         width: 16px;
         height: 16px;
