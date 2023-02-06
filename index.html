@@ -17,55 +17,53 @@
         <section class="profile">
             <img class="profile__avatar" src="././images/avatar.png" alt="Аватар профиля">
             <div class="profile__info">
-                <h1 class="profile__info-title">Жак-Ив Кусто</h1>
-                <button class="profile__info-edit-button" type="button"></button>
-                <p class="profile__info-subtitle">Исследователь океана</p>
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button aria-label="Edit_Profile" class="profile__edit-button" type="button"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <div class="profile__add-button">
-                <img class="profile__add-button-vector" src="././images/add__button.svg" alt="Кнопка добавить">
-            </div>
+            <button aria-label="Add" class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
             <div class="element">
                 <img class="element__image" src="././images/element__image/karachaevsk.png" alt="Карачаевск">
                 <div class="element__container">
                     <h2 class="element__title">Карачаевск</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="././images/element__image/elbrus.png" alt="Эльбрус">
                 <div class="element__container">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="././images/element__image/dombai.png" alt="Домбай">
                 <div class="element__container">
                     <h2 class="element__title">Домбай</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="././images/element__image/elbrus.png" alt="Эльбрус">
                 <div class="element__container">
                     <h2 class="element__title">Гора Эльбрус</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="././images/element__image/dombai.png" alt="Домбай">
                 <div class="element__container">
                     <h2 class="element__title">Домбай</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
             <div class="element">
                 <img class="element__image" src="././images/element__image/karachaevsk.png" alt="Карачаевск">
                 <div class="element__container">
                     <h2 class="element__title">Карачаево-Черкессия</h2>
-                    <img class="element__like-button" src="././images/__like.svg" alt="Кнопка лайк">
+                    <button aria-label="Like" class="element__like-button" type="button"></button>
                 </div>
             </div>
         </section>
@@ -75,12 +73,12 @@
     </footer>
     <div class="popup ">
         <div class="popup__container">
-            <img class="popup__container-close-icon" src="././images/Close_Icon.svg" alt="Кнопка закрытия">
-            <h2 class="popup__container-title">Редактировать профиль</h2>
-            <input class="popup__container-name" type="text" name="name" value="">
-            <input class="popup__container-text" type="text" name="about" value="">
+            <button aria-label="Close" class="popup__close-icon"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input placeholder="Введите имя" class="popup__name" type="text" name="name" value="">
+            <input placeholder="Введите о себе" class="popup__text" type="text" name="about" value="">
             <form>
-                <button class="popup__container-button-save" type="submit">Сохранить</button>
+                <button class="popup__button-save" type="submit">Сохранить</button>
             </form>
         </div>
     </div>
