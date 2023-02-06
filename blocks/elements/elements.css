@@ -18,9 +18,15 @@
     }
 }
 
+@media screen and (max-width: 680px) {
+    .elements {
+        margin: 0 auto;
+        max-width: 282px;
+    }
+}
+
 @media screen and (max-width: 380px) {
     .elements {
-        max-width: 282px;
         margin: 0 19px;
     }
 }

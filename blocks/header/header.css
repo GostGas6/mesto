@@ -8,12 +8,22 @@
     margin-left: 200px;
     margin-right: 200px;
     border-bottom: 1px solid #545454;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;  
+}
+
+@media screen and (max-width: 1160px) {
+    .header {
+        margin-right: 80px;
+        margin-left: 80px;
+    }
 }
 
 @media screen and (max-width: 680px) {
     .header {
-        margin-right: 100px;
-        margin-left: 100px;
+        margin-right: 50px;
+        margin-left: 50px;
     }
 }
 
