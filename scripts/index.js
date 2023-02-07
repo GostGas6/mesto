@@ -5,7 +5,7 @@ const nameInput = document.querySelector('.popup__name');
 const jobInput = document.querySelector('.popup__text');
 const nameValue = document.querySelector('.profile__title');
 const jobValue = document.querySelector('.profile__subtitle');
-const formElement = document.querySelector('.popup__button-save');
+const formElement = document.querySelector('.userData');
 
 function closeEditClick() {
     popup.classList.remove('popup_opened');
@@ -19,8 +19,8 @@ function transferText() {
 
 function handleFormSubmit(event) {
     event.preventDefault();
-    nameInput.value = nameValue.textContent;
-    jobInput.value = jobValue.textContent;
+    nameValue.textContent = nameInput.value;
+    jobValue.textContent = jobInput.value;
     closeEditClick();
 }
 
