@@ -2,8 +2,8 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    justify-content: center;
-    align-items: center;
+    object-fit: cover;
+    object-position: 100%;
 }
 
 @media screen and (max-width: 1060px) {
