@@ -24,22 +24,13 @@
             <button aria-label="Add" class="profile__add-button" type="button"></button>
         </section>
         <section class="elements">
-            <template id="element_template">
-                <div class="element">
-                    <button aria-label="Delete card" class="element__del-button" type="button"></button>
-                    <img class="element__image" src="#" alt="">
-                    <div class="element__container">
-                        <h2 class="element__title"></h2>
-                        <button aria-label="Like" class="element__like-button" type="button"></button>
-                    </div>
-                </div>
-            </template>
+
         </section>
     </main>
     <footer class="footer">
         <p>© 2023 Mesto Russia</p>
     </footer>
-    <div class="popup ">
+    <div class="popup " id="popup_edit">
         <div class="popup__container">
             <button aria-label="Close popup" class="popup__close-button"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -63,13 +54,23 @@
             </form>
         </div>
     </div>
-    <div class="popup popup_image" id="popup_image">
+    <div class="popup_image " id="popup_image">
         <div class="popup_image__container">
-            <button aria-label="Close image" class="popup__close-button" type="button"></button>
+            <button aria-label="Close image" class="popup__close-button" id="popup_close-image" type="button"></button>
             <img class="popup_image__image" src="#" alt="Image">
             <h2 class="popup_image__text"></h2>
         </div>
     </div>
+    <template id="element_template">
+        <div class="element">
+            <button aria-label="Delete card" class="element__del-button" type="button"></button>
+            <img id="image-element" class="element__image" src="#" alt="">
+            <div class="element__container">
+                <h2 id="element-name" class="element__title"></h2>
+                <button aria-label="Like" class="element__like-button" id="like" type="button"></button>
+            </div>
+        </div>
+    </template>
     <script src="scripts/index.js"></script>
 </body>
 

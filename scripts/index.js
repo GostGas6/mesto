@@ -46,15 +46,20 @@ const elementTitle = document.querySelector('.element__title');
 const elementLink = document.querySelector('.element__image');
 const saveCardButton = document.querySelector('.popup-form__button-save');
 const cardTemplate = document.querySelector('#element_template').content;
+const popupImage = document.querySelector('#popup_image');
+const imagePopup = popupImage.querySelector('.popup_image__image');
+const imagePopupHeading = popupImage.querySelector('.popup_image__text');
+const popupImg = document.querySelector('.popup_image');
 const cardArray = [];
 
-//add cards-box
+// add cards-box
 initialCards.forEach((element) => {
-    const addCard = templateItem.cloneNode(true);
-    addCard.querySelector('.element__title').textContent = element.name;
-    addCard.querySelector('.element__image').src = element.link;
-    templateCards.append(addCard);
+    const addedCard = templateItem.cloneNode(true);
+    addedCard.querySelector('#element-name').textContent = element.name;
+    addedCard.querySelector('#image-element').src = element.link;
+    templateCards.append(addedCard);
 })
+
 
 //Add
 function addCard(evt) {
@@ -72,6 +77,12 @@ function addCard(evt) {
     closeAddButton(popupForm);
 };
 
+//function like button on card's
+function activateLikeButton(event) {
+    const eventLikeButton = event.target;
+    eventLikeButton.classList.toggle('element_like-active');
+};
+
 //Render cards
 const renderCard = (element) => {
     templateCards.prepend(generateCard(element));
@@ -80,18 +91,18 @@ const renderCard = (element) => {
 function generateCard(element) {
     const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
     const delButton = elementItem.querySelector('.element__del-button');
-    const likeBtn = elementItem.querySelector('.element__like-button');
+    const likeButton = elementItem.querySelector('#like');
     const image = elementItem.querySelector('.element__image');
     const name = element.name;
     const link = element.link;
 
-    elementItem.querySelector('.element__image').textContent = name;
+    elementItem.querySelector('.element__title').textContent = name;
     image.src = link;
     image.alt = name;
 
     delButton.addEventListener('click', hundleDeleteElement);
 
-    likeBtn.addEventListener('click', activateLikeButton);
+    likeButton.addEventListener('click', activateLikeButton);
 
     image.addEventListener('click', openPopupImg);
 
@@ -103,28 +114,32 @@ const hundleDeleteElement = (event) => {
     event.target.closest('.element').remove();
 };
 
+
 //Img popup
-const popupImage = document.querySelector('#popup_image');
-const imagePopup = popupImage.querySelector('.popup_image__image');
-const imagePopupHeading = popupImage.querySelector('.popup_image__text');
-const openPopupImg = (event) => {
-    const imageLink = event.target.getAttribute('src'); 
-    const imageHeading = event.target.closest('.element').querySelector('.element__title').textContent; 
+const imageButton = document.querySelector('.element__image');
+const closeImageButton = document.querySelector('#popup_close-image');
+
+
+function openImagePopup () {
+    popupImg.classList.add('popup_image_opened')
+  }
   
+  function closeImagePopup() {
+    popupImg.classList.remove('popup_image_opened');
+};
+
+const openPopupImg = (event) => {
+    const imageLink = event.target.getAttribute('src');
+    const imageHeading = event.target.closest('.element').querySelector('#element-name').textContent;
+
     imagePopup.setAttribute('src', imageLink);
     imagePopup.setAttribute('alt', imageHeading);
     imagePopupHeading.textContent = imageHeading;
-  
-    openAddButton(popupImage);
-  };
-  
 
-//function like button on card's
-const activeLikeButton = document.querySelector('.element__like-button');
-function activateLikeButton() {
-    activeLikeButton.classList.toggle('element_like-active');
+    openImagePopup(popupImage);
+    
 };
-activeLikeButton.addEventListener('click', activateLikeButton);
+
 
 
 //функция закрытия popup профиля
@@ -138,6 +153,7 @@ function transferText() {
     aboutInput.value = jobValue.textContent;
     popup.classList.add('popup_opened');
 };
+
 
 //функция редактирования и закрытия popup профиля
 function handleFormSubmit(event) {
@@ -156,6 +172,8 @@ function closeAddButton() {
 };
 
 
+closeImageButton.addEventListener('click', closeImagePopup);
+imageButton.addEventListener('click', openImagePopup);
 openAdd.addEventListener('click', openAddButton);
 closeEditForm.addEventListener('click', closeAddButton);
 openEdit.addEventListener('click', transferText);
