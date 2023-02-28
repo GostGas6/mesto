@@ -83,64 +83,11 @@ function activateLikeButton(event) {
     eventLikeButton.classList.toggle('element_like-active');
 };
 
-//Render cards
-const renderCard = (element) => {
-    templateCards.prepend(generateCard(element));
-};
-
-function generateCard(element) {
-    const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
-    const delButton = elementItem.querySelector('.element__del-button');
-    const likeButton = elementItem.querySelector('#like');
-    const image = elementItem.querySelector('.element__image');
-    const name = element.name;
-    const link = element.link;
-
-    elementItem.querySelector('.element__title').textContent = name;
-    image.src = link;
-    image.alt = name;
-
-    delButton.addEventListener('click', hundleDeleteElement);
-
-    likeButton.addEventListener('click', activateLikeButton);
-
-    image.addEventListener('click', openPopupImg);
-
-    return elementItem;
-};
 
 //function delete cards button
 const hundleDeleteElement = (event) => {
     event.target.closest('.element').remove();
 };
-
-
-//Img popup
-const imageButton = document.querySelector('.element__image');
-const closeImageButton = document.querySelector('#popup_close-image');
-
-
-function openImagePopup () {
-    popupImg.classList.add('popup_image_opened')
-  }
-  
-  function closeImagePopup() {
-    popupImg.classList.remove('popup_image_opened');
-};
-
-const openPopupImg = (event) => {
-    const imageLink = event.target.getAttribute('src');
-    const imageHeading = event.target.closest('.element').querySelector('#element-name').textContent;
-
-    imagePopup.setAttribute('src', imageLink);
-    imagePopup.setAttribute('alt', imageHeading);
-    imagePopupHeading.textContent = imageHeading;
-
-    openImagePopup(popupImage);
-    
-};
-
-
 
 //функция закрытия popup профиля
 function closeEditClick() {
@@ -172,11 +119,62 @@ function closeAddButton() {
 };
 
 
+//Img popup
+const imageButton = document.querySelector('.element__image');
+const closeImageButton = document.querySelector('#popup_close-image');
+
+
+function openImagePopup () {
+    popupImg.classList.add('popup_image_opened')
+  }
+  
+  function closeImagePopup() {
+    popupImg.classList.remove('popup_image_opened');
+};
+
+const openPopupImg = (event) => {
+    const imageLink = event.target.getAttribute('src');
+    const imageHeading = event.target.closest('.element').querySelector('#element-name').textContent;
+
+    imagePopup.setAttribute('src', imageLink);
+    imagePopup.setAttribute('alt', imageHeading);
+    imagePopupHeading.textContent = imageHeading;
+
+    openImagePopup(popupImage);
+    
+};
+
+//Render cards
+const renderCard = (element) => {
+    templateCards.prepend(generateCard(element));
+};
+
+function generateCard(element) {
+    const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
+    const delButton = elementItem.querySelector('.element__del-button');
+    const likeButton = elementItem.querySelector('#like');
+    const image = elementItem.querySelector('.element__image');
+    const name = element.name;
+    const link = element.link;
+
+    elementItem.querySelector('.element__title').textContent = name;
+    image.src = link;
+    image.alt = name;
+
+    delButton.addEventListener('click', hundleDeleteElement);
+
+    likeButton.addEventListener('click', activateLikeButton);
+
+    image.addEventListener('click', openPopupImg);
+
+    return elementItem;
+};
+
 closeImageButton.addEventListener('click', closeImagePopup);
-imageButton.addEventListener('click', openImagePopup);
 openAdd.addEventListener('click', openAddButton);
 closeEditForm.addEventListener('click', closeAddButton);
 openEdit.addEventListener('click', transferText);
 closeEdit.addEventListener('click', closeEditClick);
 formElement.addEventListener('submit', handleFormSubmit);
 popupForm.addEventListener('submit', addCard);
+imageButton.addEventListener('click', openImagePopup);
