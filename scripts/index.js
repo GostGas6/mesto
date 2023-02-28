@@ -40,8 +40,8 @@ const openAdd = document.querySelector('.profile__add-button');
 const closeEditForm = document.querySelector('.popup-form__close-button');
 const nameInputForm = document.querySelector('#popup_place');
 const placeInputForm = document.querySelector('#popup_link');
-const titleForm = document.querySelector('#popup_place');
-const linkForm = document.querySelector('#popup_link');
+const titleForm = popupForm.querySelector('#popup_place');
+const linkForm = popupForm.querySelector('#popup_link');
 const elementTitle = document.querySelector('.element__title');
 const elementLink = document.querySelector('.element__image');
 const saveCardButton = document.querySelector('.popup-form__button-save');
@@ -58,7 +58,7 @@ initialCards.forEach((element) => {
     addedCard.querySelector('#element-name').textContent = element.name;
     addedCard.querySelector('#image-element').src = element.link;
     templateCards.append(addedCard);
-})
+});
 
 
 //Add
@@ -153,7 +153,7 @@ function generateCard(element) {
     const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
     const delButton = elementItem.querySelector('.element__del-button');
     const likeButton = elementItem.querySelector('#like');
-    const image = elementItem.querySelector('.element__image');
+    const image = elementItem.querySelector('#image-element');
     const name = element.name;
     const link = element.link;
 
