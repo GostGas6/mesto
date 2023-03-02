@@ -1,4 +1,4 @@
-.popup__close-button {
+.popup__close__button {
     background-image: url(../../../images/Close_Icon.svg);
     background-color: rgba(0, 0, 0, 0);
     background-position: center;
@@ -13,7 +13,7 @@
     top: -12%;
 }
 
-.popup__close-button:hover {
+.popup__close__button:hover {
     opacity: 0.6;
 }
 
