@@ -28,7 +28,7 @@ const initialCards = [
 const templateCards = document.querySelector('.elements');
 const openEdit = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
-const closeEdit = document.querySelector('.popup__close_button');
+const closeEdit = document.querySelector('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
 const aboutInput = document.querySelector('#popup_about')
 const nameValue = document.querySelector('.profile__title');
@@ -41,9 +41,9 @@ const titleForm = popupForm.querySelector('#popup_place');
 const linkForm = popupForm.querySelector('#popup_link');
 const cardTemplate = document.querySelector('#element_template').content;
 const popupImage = document.querySelector('#popup_image');
-const imagePopup = popupImage.querySelector('.popup_image__image');
-const imagePopupHeading = popupImage.querySelector('.popup_image__text');
-const popupImg = document.querySelector('.popup_image');
+const imagePopup = popupImage.querySelector('.popup-image__image');
+const imagePopupHeading = popupImage.querySelector('.popup-image__text');
+const popupImg = document.querySelector('.popup-image');
 const imageButton = document.querySelector('#image-element');
 const closeImageButton = document.querySelector('#popup_close-image');
 
@@ -167,4 +167,3 @@ openEdit.addEventListener('click', transferText);
 closeEdit.addEventListener('click', closeEditClick);
 formElement.addEventListener('submit', handleFormSubmit);
 popupForm.addEventListener('submit', addCard);
-imageButton.addEventListener('click', openImagePopup);
