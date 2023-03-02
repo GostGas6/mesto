@@ -59,7 +59,7 @@ function handleFormSubmit(event) {
 };
 
 
-//Add
+//функция добавления карт
 function addCard(evt) {
     evt.preventDefault(evt);
 
@@ -76,19 +76,19 @@ function addCard(evt) {
 };
 
 
-//function like button on card's
+//функция кнопки лайка
 function activateLikeButton(event) {
     const eventLikeButton = event.target;
     eventLikeButton.classList.toggle('element_like-active');
 };
 
 
-//function delete cards button
+//функция кнопки удаления
 const hundleDeleteElement = (event) => {
     event.target.closest('.element').remove();
 };
 
-//Render cards
+//рендер карт
 const renderCard = (element) => {
     templateCards.prepend(generateCard(element));
 };
@@ -115,7 +115,7 @@ function generateCard(element) {
     return elementItem;
 };
 
-//Img popup
+//popup картинок
 function openImagePopup() {
     popupImg.classList.add('popup_image_opened');
 }
@@ -157,7 +157,7 @@ function closeAddButton() {
     popupForm.classList.remove('popup-form_opened');
 };
 
-//add cards in box
+//функция добавление карт из "коробки"
 initialCards.forEach(renderCard);
 
 closeImageButton.addEventListener('click', closeImagePopup);
