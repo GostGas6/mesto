@@ -28,8 +28,6 @@
 @import url(../blocks/popup/__close-button/popup__close-button.css);
 @import url(../blocks/popup-form/popup-form.css);
 @import url(../blocks/popup-form/__button-save/popup-form__container__button-save.css);
-@import url(../blocks/popup-form/__container/popup-form__container.css);
-@import url(../blocks/popup-form/__title/popup-form__title.css);
 @import url(../blocks/popup-image/__container/popup-image__container.css);
 @import url(../blocks/popup-image/__image/popup-image__image.css);
 @import url(../blocks/popup-image/__text/popup-image__text.css);
