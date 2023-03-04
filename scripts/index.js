@@ -40,8 +40,8 @@ const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
 const cardTemplate = document.querySelector('#element_template').content;
 const popupImage = document.querySelector('#popup_image');
-const imagePopup = popupImage.querySelector('.popup-image__image');
-const imagePopupHeading = popupImage.querySelector('.popup-image__text');
+const imagePopup = popupImage.querySelector('.popup__image');
+const imagePopupHeading = popupImage.querySelector('.popup__text');
 const imageButton = document.querySelector('#image-element');
 
 
