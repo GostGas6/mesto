@@ -27,10 +27,9 @@ const initialCards = [
 
 const templateCards = document.querySelector('.elements');
 const openEdit = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
 const profilePopup = document.querySelector('#popup_edit');
 const cardPopup = document.querySelector('#popup-add');
-const closeButton = document.querySelectorAll('.popup__close-button');
+const closeButtons = document.querySelectorAll('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
 const aboutInput = document.querySelector('#popup_about')
 const nameValue = document.querySelector('.profile__title');
@@ -124,7 +123,7 @@ function closePopup(popup) {
 }
 
 
-closeButton.forEach((button) => {
+closeButtons.forEach((button) => {
     const popup = button.closest(".popup");
     button.addEventListener("click", () => closePopup(popup));
 });
