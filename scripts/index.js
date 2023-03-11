@@ -24,6 +24,16 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+const validationOptions = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button-save',
+    inactiveButtonClass: 'popup__button_inactive',
+    inputErrorClass: 'popup-form__input_invalid',
+    errorClass: 'popup__error_active',
+    errorText: '.popup__error',
+    errorClosestParent: '.popup-form__input-section'
+};
 
 const templateCards = document.querySelector('.elements');
 const openEdit = document.querySelector('.profile__edit-button');
@@ -43,6 +53,9 @@ const popupImage = document.querySelector('#popup_image');
 const imagePopup = popupImage.querySelector('.popup__image');
 const imagePopupHeading = popupImage.querySelector('.popup__text');
 const imageButton = document.querySelector('#image-element');
+const submitAddBtn = cardPopup.querySelector('.popup__button-save');
+const formAdd = cardPopup.querySelector('.popup__form');
+const overlays = Array.from(document.querySelectorAll('.popup'));
 
 
 //функция добавления карт
@@ -58,8 +71,35 @@ function addCard(evt) {
     linkForm.value = ``;
 
     renderCard(item);
+
+    formAdd.reset();
+    setButtonInactive(submitAddBtn, validationOptions.inactiveButtonClass);
+
     closePopup(cardPopup);
 };
+
+const addHandleKey = () => {
+    document.addEventListener('keydown', handleKey);
+};
+
+const removeHandleKey = () => {
+    document.removeEventListener('keydown', handleKey);
+};
+
+const handleKey = (evt) => {
+    if (evt.key === 'Escape') {
+        const activePopup = document.querySelector('.popup_opened');
+        closePopup(activePopup);
+    };
+};
+
+overlays.forEach((overlay) => {
+    overlay.addEventListener('click', (evt) => {
+        if (evt.target === overlay) {
+            closePopup(overlay);
+        };
+    });
+});
 
 //функция кнопки лайка
 function toggleLike(event) {
@@ -116,10 +156,12 @@ initialCards.forEach(renderCard);
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    addHandleKey();
 }
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    removeHandleKey();
 }
 
 
@@ -137,13 +179,13 @@ function handleFormSubmitEdit(evt) {
     evt.preventDefault(evt);
     const userNameNew = nameInput.value;
     const userJobNew = aboutInput.value;
-    
+
     nameValue.textContent = userNameNew;
     jobValue.textContent = userJobNew;
-  
+
     closePopup(profilePopup);
-  };
-  
+};
+
 
 openEdit.addEventListener('click', () => {
 
@@ -154,5 +196,4 @@ openEdit.addEventListener('click', () => {
 });
 
 profilePopup.addEventListener('submit', handleFormSubmitEdit);
-
 cardPopup.addEventListener('submit', addCard);

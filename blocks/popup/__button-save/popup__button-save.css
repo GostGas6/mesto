@@ -7,7 +7,7 @@
     cursor: pointer;
     font-size: 18px;
     line-height: 22px;
-    margin: 10px 36px 37px 36px;
+    margin: 15px 0 0 0;
     color: #fff;
 }
 
@@ -20,7 +20,7 @@
     .popup__button-save {
         width: 238px;
         height: 46px;
-        margin: 10px 22px 25px 22px;
+        margin: 0;
         font-size: 14px;
         line-height: 17px;
     }
