@@ -28,11 +28,11 @@ const validationOptions = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button-save',
-    inactiveButtonClass: 'popup__button_inactive',
+    inactiveButtonClass: 'popup__button-save_inactive',
     inputErrorClass: 'popup-form__input_invalid',
     errorClass: 'popup__error_active',
     errorText: '.popup__error',
-    errorClosestParent: '.popup-form__input-section'
+    errorClosestParent: '.popup__input-section'
 };
 
 const templateCards = document.querySelector('.elements');
