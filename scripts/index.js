@@ -36,16 +36,16 @@ const validationOptions = {
 };
 
 const templateCards = document.querySelector('.elements');
-const openEdit = document.querySelector('.profile__edit-button');
+const buttonEdit = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('#popup_edit');
 const cardPopup = document.querySelector('#popup-add');
-const closeButtons = document.querySelectorAll('.popup__close-button');
+const buttonClose = document.querySelectorAll('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
-const aboutInput = document.querySelector('#popup_about')
+const inputAbout = document.querySelector('#popup_about')
 const nameValue = document.querySelector('.profile__title');
 const jobValue = document.querySelector('.profile__subtitle');
 const profileForm = document.querySelector('.popup__form');
-const openAdd = document.querySelector('.profile__add-button');
+const buttonAdd = document.querySelector('.profile__add-button');
 const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
 const cardTemplate = document.querySelector('#element_template').content;
@@ -165,12 +165,12 @@ function closePopup(popup) {
 }
 
 
-closeButtons.forEach((button) => {
+buttonClose.forEach((button) => {
     const popup = button.closest(".popup");
     button.addEventListener("click", () => closePopup(popup));
 });
 
-openAdd.addEventListener('click', function () {
+buttonAdd.addEventListener('click', function () {
     openPopup(cardPopup);
 });
 
@@ -178,7 +178,7 @@ openAdd.addEventListener('click', function () {
 function handleFormSubmitEdit(evt) {
     evt.preventDefault(evt);
     const userNameNew = nameInput.value;
-    const userJobNew = aboutInput.value;
+    const userJobNew = inputAbout.value;
 
     nameValue.textContent = userNameNew;
     jobValue.textContent = userJobNew;
@@ -187,10 +187,10 @@ function handleFormSubmitEdit(evt) {
 };
 
 
-openEdit.addEventListener('click', () => {
+buttonEdit.addEventListener('click', () => {
 
     nameInput.value = nameValue.textContent;
-    aboutInput.value = jobValue.textContent;
+    inputAbout.value = jobValue.textContent;
 
     openPopup(profilePopup);
 });
