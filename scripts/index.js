@@ -35,9 +35,20 @@ const validationOptions = {
     errorClosestParent: '.popup__input-section'
 };
 
+const elementTemplateOptions = {
+    templateSelector: 'element_template',
+    elementSelector: '.element',
+    elementTextSelector: '.element__title',
+    deleteBtnSelector: '.element__del-button',
+    likeBtnSelector: '.element__like-button',
+    imgSelector: '.element__image',
+    likeBtnClass: 'element_like-active'
+};
+
 const templateCards = document.querySelector('.elements');
 const buttonEdit = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('#popup_edit');
+const submitEditBtn = profilePopup.querySelector('.popup__button-save');
 const cardPopup = document.querySelector('#popup-add');
 const buttonClose = document.querySelectorAll('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
@@ -73,7 +84,7 @@ function addCard(evt) {
     renderCard(item);
 
     formAdd.reset();
-    setButtonInactive(submitAddBtn, validationOptions.inactiveButtonClass);
+    validatorAddForm.setButtonInactive(submitAddBtn);
 
     closePopup(cardPopup);
 };
@@ -115,7 +126,8 @@ const hundleDeleteElement = (event) => {
 
 //рендер карт
 const renderCard = (element) => {
-    templateCards.prepend(generateCard(element));
+    const createCard =  new Card(element, elementTemplateOptions.templateSelector, openPopup)
+    templateCards.prepend(createCard.generateCard(element));
 };
 
 function generateCard(element) {
@@ -153,6 +165,12 @@ const openPopupImg = (event) => {
 
 //функция добавление карт из "коробки"
 initialCards.forEach(renderCard);
+
+const validatorAddForm = new FromValidator(validationOptions, formAdd, submitAddBtn);
+validatorAddForm.enableValidation();
+
+const validatorEditForm = new FromValidator(validationOptions, profilePopup, submitEditBtn);
+validatorEditForm.enableValidation();
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -197,3 +215,5 @@ buttonEdit.addEventListener('click', () => {
 
 profilePopup.addEventListener('submit', handleFormSubmitEdit);
 cardPopup.addEventListener('submit', addCard);
+
+export { validationOptions, initialCards, elementTemplateOptions, popupImage, imagePopup, imagePopupHeading };
