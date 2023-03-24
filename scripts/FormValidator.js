@@ -1,3 +1,5 @@
+import { validationOptions } from './index.js';
+
 class FormValidator {
     constructor(validationOptions, form, submitElement) {
         this._form = form;
@@ -16,14 +18,14 @@ class FormValidator {
         inputElement.classList.remove(this._options.inputErrorClass);
     };
 
-    _setButtonActive(submitElement, inactiveButtonClass) {
+    _setButtonActive() {
         this._submitElement.removeAttribute('disabled');
         this._submitElement.classList.remove(this._options.inactiveButtonClass);
     };
 
-    _setButtonInactive(submitElement, inactiveButtonClass) {
-        submitElement.setAttribute('disabled', 'true');
-        submitElement.classList.add(this._options.inactiveButtonClass);
+    _setButtonInactive() {
+        this._submitElement.setAttribute('disabled', 'true');
+        this._submitElement.classList.add(this._options.inactiveButtonClass);
     };
 
     _setInputState(inputElement, isValid) {
@@ -41,6 +43,18 @@ class FormValidator {
         this._setInputState(inputElement, isValid);
     };
 
+    _toggleBtnState = (inputs) => {
+        const isFormValid = inputs.every((inputElement) => {
+            return inputElement.validity.valid;
+        });
+
+        if (isFormValid) {
+            this._setButtonActive();
+        } else {
+            this._setButtonInactive();
+        }
+    }
+
     _setEventListeners = (form) => {
         const inputs = Array.from(form.querySelectorAll(this._options.inputSelector));
 
@@ -51,26 +65,34 @@ class FormValidator {
             });
         })
 
+        this._toggleBtnState(inputs)
+    };
 
-        const toggleBtnState = (inputs) => {
-            const isFormValid = inputs.every((inputElement) => {
-                return inputElement.validity.valid;
+    _enableValidation = ({
+        formSelector,
+        inputSelector,
+        submitButtonSelector,
+        inactiveButtonClass,
+        inputErrorClass,
+        errorClass,
+        errorText,
+        errorClosestParent
+    }) => {
+        const forms = Array.from(document.querySelectorAll(formSelector));
+        forms.forEach(form => {
+            setEventListeners(form, {
+                inputSelector,
+                submitButtonSelector,
+                inactiveButtonClass,
+                inputErrorClass,
+                errorClass,
+                errorText,
+                errorClosestParent
             });
-
-            if (isFormValid) {
-                this._setButtonActive();
-            } else {
-                this._setButtonInactive();
-            }
-        }
-
-        toggleBtnState(inputs)
+        });
     };
-    enableValidation() {
-        const form = this._form;
-        this._setEventListeners(form);
-    };
+    
 }
 
 
-export default FormValidator;
+export default FormValidator;   

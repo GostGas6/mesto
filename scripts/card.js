@@ -1,4 +1,4 @@
-import { elementTemplateOptions, popupImage, imagePopup, imagePopupHeading } from './index.js';
+import { elementTemplateOptions as options, popupImage, imagePopup, imagePopupHeading } from './index.js';
 
 class Card {
     constructor(element, templateSelector, openPopup) {
@@ -19,36 +19,36 @@ class Card {
 
     _getTemplate() {
         const elementTemplate = document.getElementById(this._templateSelector).content;
-        const listItem = elementTemplate.querySelector(options.cardSelector).cloneNode(true);
+        const listItem = elementTemplate.querySelector(options.elementSelector).cloneNode(true);
         return listItem;
     };
 
-    _handleDeleteCard = () => {
-        this._listItem.remove();
+    _hundleDeleteElement = () => {
+        this._elementItem.remove();
     };
 
-    _handleLikeCard = (event) => {
+    _toggleLike = (event) => {
         const eventTarget = event.target;
         eventTarget.classList.toggle(options.likeBtnClass);
     };
 
     generateCard() {
-        this._listItem = this._getTemplate();
-        const deleteBtn = this._listItem.querySelector(options.deleteBtnSelector);
-        const likeBtn = this._listItem.querySelector(options.likeBtnSelector);
-        const img = this._listItem.querySelector(options.imgSelector);
+        this._elementItem = this._getTemplate();
+        const delButton = this._elementItem.querySelector(options.deleteBtnSelector);
+        const likeButton = this._elementItem.querySelector(options.likeBtnSelector);
+        const image = this._elementItem.querySelector(options.imgSelector);
 
-        this._listItem.querySelector(options.cardHeadingSelector).textContent = this._name;
-        img.src = this._link;
-        img.alt = this._name;
+        this._elementItem.querySelector(options.elementTextSelector).textContent = this._name;
+        image.src = this._link;
+        image.alt = this._name;
 
-        deleteBtn.addEventListener('click', this._handleDeleteCard);
+        delButton.addEventListener('click', this._hundleDeleteElement);
 
-        likeBtn.addEventListener('click', this._handleLikeCard);
+        likeButton.addEventListener('click', this._toggleLike);
 
-        img.addEventListener('click', this._openPopupImg);
+        image.addEventListener('click', this._openPopupImg);
 
-        return this._listItem;
+        return this._elementItem;
     };
 }
 

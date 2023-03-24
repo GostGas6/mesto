@@ -1,3 +1,6 @@
+import Card from './card.js'
+import FormValidator from './FormValidator.js';
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -48,7 +51,7 @@ const elementTemplateOptions = {
 const templateCards = document.querySelector('.elements');
 const buttonEdit = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('#popup_edit');
-const submitEditBtn = profilePopup.querySelector('.popup__button-save');
+const submitEditBtn = profilePopup.querySelector('popup__button-save');
 const cardPopup = document.querySelector('#popup-add');
 const buttonClose = document.querySelectorAll('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
@@ -59,7 +62,7 @@ const profileForm = document.querySelector('.popup__form');
 const buttonAdd = document.querySelector('.profile__add-button');
 const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
-const cardTemplate = document.querySelector('#element_template').content;
+// const cardTemplate = document.querySelector('#element_template').content;
 const popupImage = document.querySelector('#popup_image');
 const imagePopup = popupImage.querySelector('.popup__image');
 const imagePopupHeading = popupImage.querySelector('.popup__text');
@@ -131,7 +134,7 @@ const renderCard = (element) => {
 };
 
 function generateCard(element) {
-    const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
+    // const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
     const delButton = elementItem.querySelector('.element__del-button');
     const likeButton = elementItem.querySelector('#like');
     const image = elementItem.querySelector('#image-element');
@@ -166,11 +169,11 @@ const openPopupImg = (event) => {
 //функция добавление карт из "коробки"
 initialCards.forEach(renderCard);
 
-const validatorAddForm = new FromValidator(validationOptions, formAdd, submitAddBtn);
-validatorAddForm.enableValidation();
+const validatorAddForm = new FormValidator(validationOptions, formAdd, submitAddBtn);
+validatorAddForm.enableValidation;
 
-const validatorEditForm = new FromValidator(validationOptions, profilePopup, submitEditBtn);
-validatorEditForm.enableValidation();
+const validatorEditForm = new FormValidator(validationOptions, profilePopup, submitEditBtn);
+validatorEditForm.enableValidation;
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
