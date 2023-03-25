@@ -16,11 +16,10 @@ class Card {
         this._openPopup(popupImage);
     };
 
-
     _getTemplate() {
         const elementTemplate = document.getElementById(this._templateSelector).content;
-        const listItem = elementTemplate.querySelector(options.elementSelector).cloneNode(true);
-        return listItem;
+        const elementItem = elementTemplate.querySelector(options.elementSelector).cloneNode(true);
+        return elementItem;
     };
 
     _hundleDeleteElement = () => {

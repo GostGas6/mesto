@@ -115,55 +115,10 @@ overlays.forEach((overlay) => {
     });
 });
 
-//функция кнопки лайка
-function toggleLike(event) {
-    const eventLikeButton = event.target;
-    eventLikeButton.classList.toggle('element_like-active');
-};
-
-
-//функция кнопки удаления
-const hundleDeleteElement = (event) => {
-    event.target.closest('.element').remove();
-};
-
 //рендер карт
 const renderCard = (element) => {
     const createCard =  new Card(element, elementTemplateOptions.templateSelector, openPopup)
     templateCards.prepend(createCard.generateCard(element));
-};
-
-function generateCard(element) {
-    // const elementItem = cardTemplate.querySelector('.element').cloneNode(true);
-    const delButton = elementItem.querySelector('.element__del-button');
-    const likeButton = elementItem.querySelector('#like');
-    const image = elementItem.querySelector('#image-element');
-    const name = element.name;
-    const link = element.link;
-
-    elementItem.querySelector('#element-name').textContent = name;
-    image.src = link;
-    image.alt = name;
-
-    delButton.addEventListener('click', hundleDeleteElement);
-
-    likeButton.addEventListener('click', toggleLike);
-
-    image.addEventListener('click', openPopupImg);
-
-
-    return elementItem;
-};
-
-const openPopupImg = (event) => {
-    const imageLink = event.target.getAttribute('src');
-    const imageHeading = event.target.closest('.element').querySelector('#element-name').textContent;
-
-    imagePopup.setAttribute('src', imageLink);
-    imagePopup.setAttribute('alt', imageHeading);
-    imagePopupHeading.textContent = imageHeading;
-
-    openPopup(popupImage);
 };
 
 //функция добавление карт из "коробки"
@@ -185,7 +140,6 @@ function closePopup(popup) {
     removeHandleKey();
 }
 
-
 buttonClose.forEach((button) => {
     const popup = button.closest(".popup");
     button.addEventListener("click", () => closePopup(popup));
@@ -206,7 +160,6 @@ function handleFormSubmitEdit(evt) {
 
     closePopup(profilePopup);
 };
-
 
 buttonEdit.addEventListener('click', () => {
 

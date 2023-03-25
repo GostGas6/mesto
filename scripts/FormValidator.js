@@ -6,13 +6,13 @@ class FormValidator {
         this._options = validationOptions;
         this._submitElement = submitElement;
     };
-    _showError(errorElement, inputElement, options) {
+    _showError(errorElement, inputElement) {
         errorElement.textContent = inputElement.validationMessage;
         errorElement.classList.add(this._options.errorClass);
         inputElement.classList.add(this._options.inputErrorClass);
     };
 
-    _hideError(errorElement, inputElement, options) {
+    _hideError(errorElement, inputElement) {
         errorElement.textContent = '';
         errorElement.classList.remove(this._options.errorClass);
         inputElement.classList.remove(this._options.inputErrorClass);
@@ -64,35 +64,13 @@ class FormValidator {
                 this._toggleBtnState(inputs);
             });
         })
-
         this._toggleBtnState(inputs)
     };
 
-    _enableValidation = ({
-        formSelector,
-        inputSelector,
-        submitButtonSelector,
-        inactiveButtonClass,
-        inputErrorClass,
-        errorClass,
-        errorText,
-        errorClosestParent
-    }) => {
-        const forms = Array.from(document.querySelectorAll(formSelector));
-        forms.forEach(form => {
-            setEventListeners(form, {
-                inputSelector,
-                submitButtonSelector,
-                inactiveButtonClass,
-                inputErrorClass,
-                errorClass,
-                errorText,
-                errorClosestParent
-            });
-        });
+    enableValidation() {
+        const form = this._form;
+        this._setEventListeners(form);
     };
-    
 }
-
 
 export default FormValidator;   
