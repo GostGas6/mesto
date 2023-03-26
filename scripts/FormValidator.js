@@ -1,4 +1,3 @@
-import { validationOptions } from './index.js';
 
 class FormValidator {
     constructor(validationOptions, form, submitElement) {
@@ -73,4 +72,4 @@ class FormValidator {
     };
 }
 
-export default FormValidator;   
+export default FormValidator;

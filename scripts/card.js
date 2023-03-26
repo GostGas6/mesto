@@ -7,7 +7,7 @@ class Card {
         this._templateSelector = templateSelector;
         this._openPopup = openPopup;
     };
-
+    
     _openPopupImg = () => {
         imagePopup.setAttribute('src', this._link);
         imagePopup.setAttribute('alt', this._name);
