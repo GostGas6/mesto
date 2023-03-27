@@ -1,6 +1,6 @@
-import Card from './Card.js'
+import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-import {elementTemplateOptions, validationOptions, initialCards} from './constants.js';
+import { elementTemplateOptions, validationOptions, initialCards, popupImage, imagePopup, imagePopupHeading } from './constants.js';
 
 const templateCards = document.querySelector('.elements');
 const buttonEdit = document.querySelector('.profile__edit-button');
@@ -17,9 +17,6 @@ const buttonAdd = document.querySelector('.profile__add-button');
 const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
 // const cardTemplate = document.querySelector('#element_template').content;
-const popupImage = document.querySelector('#popup_image');
-const imagePopup = popupImage.querySelector('.popup__image');
-const imagePopupHeading = popupImage.querySelector('.popup__text');
 const imageButton = document.querySelector('#image-element');
 const submitAddBtn = cardPopup.querySelector('.popup__button-save');
 const formAdd = cardPopup.querySelector('.popup__form');
@@ -30,15 +27,10 @@ const overlays = Array.from(document.querySelectorAll('.popup'));
 function addCard(evt) {
     evt.preventDefault(evt);
 
-    const item = {
+    renderCard({
         name: titleForm.value,
         link: linkForm.value
-    }
-
-    titleForm.value = ``;
-    linkForm.value = ``;
-
-    renderCard(item);
+    });
 
     formAdd.reset();
     validatorAddForm.setButtonInactive(submitAddBtn);
@@ -71,7 +63,7 @@ overlays.forEach((overlay) => {
 
 //рендер карт
 const renderCard = (element) => {
-    const createCard =  new Card(element, elementTemplateOptions.templateSelector, openPopup)
+    const createCard = new Card(element, elementTemplateOptions.templateSelector, openPopup)
     templateCards.prepend(createCard.generateCard(element));
 };
 

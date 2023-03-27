@@ -1,4 +1,4 @@
-import { elementTemplateOptions as options, popupImage, imagePopup, imagePopupHeading } from './index.js';
+import { elementTemplateOptions as options, popupImage, imagePopup, imagePopupHeading } from './constants.js';
 
 class Card {
     constructor(element, templateSelector, openPopup) {
@@ -7,7 +7,7 @@ class Card {
         this._templateSelector = templateSelector;
         this._openPopup = openPopup;
     };
-    
+
     _openPopupImg = () => {
         imagePopup.setAttribute('src', this._link);
         imagePopup.setAttribute('alt', this._name);
