@@ -52,7 +52,7 @@ class FormValidator {
         } else {
             this._setButtonInactive();
         }
-    }
+    };
 
     _setEventListeners = (form) => {
         const inputs = Array.from(form.querySelectorAll(this._options.inputSelector));
