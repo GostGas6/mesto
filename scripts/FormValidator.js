@@ -5,12 +5,13 @@ class FormValidator {
         this._options = validationOptions;
         this._submitElement = submitElement;
     };
+    
     _showError(errorElement, inputElement) {
         errorElement.textContent = inputElement.validationMessage;
         errorElement.classList.add(this._options.errorClass);
         inputElement.classList.add(this._options.inputErrorClass);
     };
-
+    
     _hideError(errorElement, inputElement) {
         errorElement.textContent = '';
         errorElement.classList.remove(this._options.errorClass);
@@ -52,7 +53,7 @@ class FormValidator {
         } else {
             this._setButtonInactive();
         }
-    };
+    }
 
     _setEventListeners = (form) => {
         const inputs = Array.from(form.querySelectorAll(this._options.inputSelector));
@@ -62,7 +63,7 @@ class FormValidator {
                 this._toggleInputState(inputElement);
                 this._toggleBtnState(inputs);
             });
-        })
+        })  
         this._toggleBtnState(inputs)
     };
 

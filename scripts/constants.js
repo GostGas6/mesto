@@ -1,4 +1,4 @@
-export const initialCards = [
+const initialCards = [
     {
         name: 'Архыз',
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,11 +25,11 @@ export const initialCards = [
     }
 ];
 
-export const popupImage = document.querySelector('#popup_image');
-export const imagePopup = popupImage.querySelector('.popup__image');
-export const imagePopupHeading = popupImage.querySelector('.popup__text');
+const popupImage = document.querySelector('#popup_image');
+const imagePopup = popupImage.querySelector('.popup__image');
+const imagePopupHeading = popupImage.querySelector('.popup__text');
 
-export const validationOptions = {
+const validationOptions = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button-save',
@@ -40,7 +40,7 @@ export const validationOptions = {
     errorClosestParent: '.popup__input-section'
 };
 
-export const elementTemplateOptions = {
+const elementTemplateOptions = {
     templateSelector: 'element_template',
     elementSelector: '.element',
     elementTextSelector: '.element__title',
@@ -49,3 +49,5 @@ export const elementTemplateOptions = {
     imgSelector: '.element__image',
     likeBtnClass: 'element_like-active'
 };
+
+export { initialCards, validationOptions, elementTemplateOptions, popupImage, imagePopup, imagePopupHeading }

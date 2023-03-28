@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
-import { elementTemplateOptions, validationOptions, initialCards, popupImage, imagePopup, imagePopupHeading } from './constants.js';
+import { elementTemplateOptions, validationOptions, initialCards } from './constants.js';
 
 const templateCards = document.querySelector('.elements');
 const buttonEdit = document.querySelector('.profile__edit-button');
@@ -16,7 +16,7 @@ const profileForm = document.querySelector('.popup__form');
 const buttonAdd = document.querySelector('.profile__add-button');
 const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
-// const cardTemplate = document.querySelector('#element_template').content;
+const cardTemplate = document.querySelector('#element_template').content;
 const imageButton = document.querySelector('#image-element');
 const submitAddBtn = cardPopup.querySelector('.popup__button-save');
 const formAdd = cardPopup.querySelector('.popup__form');
@@ -117,5 +117,3 @@ buttonEdit.addEventListener('click', () => {
 
 profilePopup.addEventListener('submit', handleFormSubmitEdit);
 cardPopup.addEventListener('submit', addCard);
-
-export { validationOptions, initialCards, elementTemplateOptions, popupImage, imagePopup, imagePopupHeading };
