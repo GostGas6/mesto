@@ -17,9 +17,10 @@ class Card {
     };
 
     _getTemplate() {
-        const elementTemplate = document.getElementById(this._templateSelector).content;
-        const elementItem = elementTemplate.querySelector(options.elementSelector).cloneNode(true);
-        return elementItem;
+        const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
+
+
+        return cardElement;
     };
 
     _hundleDeleteElement = () => {
@@ -49,6 +50,7 @@ class Card {
 
         return this._elementItem;
     };
+
 }
 
 export default Card;
