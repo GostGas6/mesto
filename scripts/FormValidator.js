@@ -1,5 +1,5 @@
 
-class FormValidator {
+export default class FormValidator {
     constructor(validationOptions, submitElement) {
         this._inputSelector = validationOptions.inputSelector;
         this._submitButtonSelector = validationOptions.submitButtonSelector;
@@ -99,14 +99,11 @@ class FormValidator {
     resetValidation() {
         this._toggleBtnState();
         this._inputs.forEach((inputElement) => {
-          this._hideError(inputElement);
+            this._hideError(inputElement);
         });
-      }
-      
+    }
 
     enableValidation() {
         this._setEventListeners();
     };
 }
-
-export default FormValidator;

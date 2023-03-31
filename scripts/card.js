@@ -1,6 +1,6 @@
 import { elementTemplateOptions as options, popupImage, imagePopup, imagePopupHeading } from './constants.js';
 
-class Card {
+export default class Card {
     constructor(element, templateSelector, openPopup) {
         this._name = element.name;
         this._link = element.link;
@@ -17,9 +17,11 @@ class Card {
     };
 
     _getTemplate() {
-        const cardElement = document.querySelector(this._templateSelector).content.querySelector('.element').cloneNode(true);
-
-
+        const cardElement = document
+            .querySelector(this._templateSelector)
+            .content
+            .querySelector('.element')
+            .cloneNode(true);
         return cardElement;
     };
 
@@ -34,9 +36,10 @@ class Card {
 
     generateCard() {
         this._elementItem = this._getTemplate();
-        const delButton = this._elementItem.querySelector(options.deleteBtnSelector);
-        const likeButton = this._elementItem.querySelector(options.likeBtnSelector);
-        const image = this._elementItem.querySelector(options.imgSelector);
+
+        this._delButton = this._elementItem.querySelector(options.deleteBtnSelector);
+        this._likeButton = this._elementItem.querySelector(options.likeBtnSelector);
+        this._image = this._elementItem.querySelector(options.imgSelector);
 
         this._elementItem.querySelector(options.elementTextSelector).textContent = this._name;
         image.src = this._link;
@@ -52,5 +55,3 @@ class Card {
     };
 
 }
-
-export default Card;
