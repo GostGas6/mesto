@@ -60,12 +60,11 @@ overlays.forEach((overlay) => {
     });
 });
 
-//рендер карт
 const renderCard = (element) => {
-    const createCard = new Card(element, elementTemplateOptions.templateSelector, openPopup)
+    const createCard =  new Card(element, elementTemplateOptions.templateSelector, openPopup)
     templateCards.prepend(createCard.generateCard(element));
-};
-
+  };
+  
 //функция добавление карт из "коробки"
 initialCards.forEach(renderCard);
 

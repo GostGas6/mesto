@@ -17,12 +17,9 @@ export default class Card {
     };
 
     _getTemplate() {
-        const cardElement = document
-            .querySelector(this._templateSelector)
-            .content
-            .querySelector('.element')
-            .cloneNode(true);
-        return cardElement;
+        const cardTemplate = document.getElementById(this._templateSelector).content;
+        const elementItem = cardTemplate.querySelector(options.elementSelector).cloneNode(true);
+        return elementItem;
     };
 
     _hundleDeleteElement = () => {
@@ -42,16 +39,15 @@ export default class Card {
         this._image = this._elementItem.querySelector(options.imgSelector);
 
         this._elementItem.querySelector(options.elementTextSelector).textContent = this._name;
-        image.src = this._link;
-        image.alt = this._name;
+        this._image.src = this._link;
+        this._image.alt = this._name;
 
-        delButton.addEventListener('click', this._hundleDeleteElement);
+        this._delButton.addEventListener('click', this._hundleDeleteElement);
 
-        likeButton.addEventListener('click', this._toggleLike);
+        this._likeButton.addEventListener('click', this._toggleLike);
 
-        image.addEventListener('click', this._openPopupImg);
+        this._image.addEventListener('click', this._openPopupImg);
 
         return this._elementItem;
     };
-
 }

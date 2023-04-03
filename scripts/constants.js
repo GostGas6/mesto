@@ -34,7 +34,7 @@ const validationOptions = {
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button-save',
     inactiveButtonClass: 'popup__button-save_inactive',
-    inputErrorClass: 'popup-form__input_invalid',
+    inputErrorClass: 'popup__input_invalid',
     errorClass: 'popup__error_active',
     errorText: '.popup__error',
     errorClosestParent: '.popup__input-section'
