@@ -1,6 +1,6 @@
 import { elementTemplateOptions as options, popupImage, imagePopup, imagePopupHeading } from './constants.js';
 
-export default class Card {
+class Card {
     constructor(element, templateSelector, openPopup) {
         this._name = element.name;
         this._link = element.link;
@@ -50,4 +50,6 @@ export default class Card {
 
         return this._elementItem;
     };
-}
+};
+
+export default Card;

@@ -63,7 +63,7 @@ export default class FormValidator {
                 this._toggleBtnState(inputs);
             });
         })
-        this._toggleBtnState(inputs)
+        this._toggleBtnState(inputs);
     };
     enableValidation() {
         const form = this._form;

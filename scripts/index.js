@@ -1,5 +1,5 @@
-import Card from './card.js';
-import FormValidator from './FormValidator.js';
+import Card from './Card.js'
+import FormValidator from './FormValidator.js'
 import { elementTemplateOptions, validationOptions, initialCards } from './constants.js';
 
 const templateCards = document.querySelector('.elements');
@@ -7,6 +7,7 @@ const buttonEdit = document.querySelector('.profile__edit-button');
 const profilePopup = document.querySelector('#popup_edit');
 const submitEditBtn = profilePopup.querySelector('popup__button-save');
 const cardPopup = document.querySelector('#popup-add');
+const formEdit = profilePopup.querySelector('.popup__form');
 const buttonClose = document.querySelectorAll('.popup__close-button');
 const nameInput = document.querySelector('#popup_name');
 const inputAbout = document.querySelector('#popup_about')
@@ -71,7 +72,7 @@ initialCards.forEach(renderCard);
 const validatorAddForm = new FormValidator(validationOptions, formAdd, submitAddBtn);
 validatorAddForm.enableValidation;
 
-const validatorEditForm = new FormValidator(validationOptions, profilePopup, submitEditBtn);
+const validatorEditForm = new FormValidator(validationOptions, formEdit, submitEditBtn);
 validatorEditForm.enableValidation;
 
 function openPopup(popup) {
