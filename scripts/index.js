@@ -1,6 +1,6 @@
+import { elementTemplateOptions, validationOptions, initialCards } from './constants.js'
 import Card from './Card.js'
-import FormValidator from './FormValidator.js'
-import { elementTemplateOptions, validationOptions, initialCards } from './constants.js';
+import FormValidator from './FormValidator.js';
 
 const templateCards = document.querySelector('.elements');
 const buttonEdit = document.querySelector('.profile__edit-button');
@@ -16,8 +16,6 @@ const jobValue = document.querySelector('.profile__subtitle');
 const buttonAdd = document.querySelector('.profile__add-button');
 const titleForm = cardPopup.querySelector('#popup_place');
 const linkForm = cardPopup.querySelector('#popup_link');
-const cardTemplate = document.querySelector('#element_template').content;
-const imageButton = document.querySelector('#image-element');
 const submitAddBtn = cardPopup.querySelector('.popup__button-save');
 const formAdd = cardPopup.querySelector('.popup__form');
 const overlays = Array.from(document.querySelectorAll('.popup'));
