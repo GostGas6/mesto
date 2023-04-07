@@ -1,5 +1,5 @@
-import { elementTemplateOptions, validationOptions, initialCards } from './constants.js'
-import Card from './Card.js'
+import { elementTemplateOptions, validationOptions, initialCards } from './constants.js';
+import Card from './Card.js';
 import FormValidator from './FormValidator.js';
 
 const templateCards = document.querySelector('.elements');
