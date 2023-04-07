@@ -22,7 +22,7 @@ class FormValidator {
         this._submitElement.classList.remove(this._options.inactiveButtonClass);
     };
 
-    _setButtonInactive() {
+    setButtonInactive() {
         this._submitElement.setAttribute('disabled', 'true');
         this._submitElement.classList.add(this._options.inactiveButtonClass);
     };
@@ -50,7 +50,7 @@ class FormValidator {
         if (isFormValid) {
             this._setButtonActive();
         } else {
-            this._setButtonInactive();
+            this.setButtonInactive();
         }
     }
 
@@ -63,8 +63,9 @@ class FormValidator {
                 this._toggleBtnState(inputs);
             });
         })
-        this._toggleBtnState(inputs);
+        this._toggleBtnState(inputs)
     };
+    
     enableValidation() {
         const form = this._form;
         this._setEventListeners(form);
