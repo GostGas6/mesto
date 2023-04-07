@@ -11,10 +11,10 @@
     color: #fff;
 }
 
-/* .popup__button-save:disabled {
+.popup__button-save:disabled {
     cursor: default;
     pointer-events: none;
-} */
+}
 
 .popup__button-save:hover {
     opacity: 0.8;
