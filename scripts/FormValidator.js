@@ -1,8 +1,8 @@
 class FormValidator {
-    constructor(validationOptions, form, submitElement) {
+    constructor(validationOptions, form) {
         this._form = form;
         this._options = validationOptions;
-        this._submitElement = submitElement;
+        this._submitElement = this._form.querySelector(this._options.submitButtonSelector);
     };
 
     _showError(errorElement, inputElement) {
@@ -55,15 +55,15 @@ class FormValidator {
     }
 
     _setEventListeners = (form) => {
-        const inputs = Array.from(form.querySelectorAll(this._options.inputSelector));
+        this._inputs = Array.from(form.querySelectorAll(this._options.inputSelector));
 
-        inputs.forEach(inputElement => {
+        this._inputs.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
                 this._toggleInputState(inputElement);
-                this._toggleBtnState(inputs);
+                this._toggleBtnState(this._inputs);
             });
         })
-        this._toggleBtnState(inputs)
+        this._toggleBtnState(this._inputs)
     };
     
     enableValidation() {

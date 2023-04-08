@@ -33,19 +33,19 @@ class Card {
 
     generateCard() {
         this._elementItem = this._getTemplate();
-        const delButton = this._elementItem.querySelector(options.deleteBtnSelector);
-        const likeButton = this._elementItem.querySelector(options.likeBtnSelector);
-        const image = this._elementItem.querySelector(options.imgSelector);
+        this._delButton = this._elementItem.querySelector(options.deleteBtnSelector);
+        this._likeButton = this._elementItem.querySelector(options.likeBtnSelector);
+        this._image = this._elementItem.querySelector(options.imgSelector);
       
         this._elementItem.querySelector(options.elementTextSelector).textContent = this._name;
-        image.src = this._link;
-        image.alt = this._name;
+        this._image.src = this._link;
+        this._image.alt = this._name;
         
-        delButton.addEventListener('click', this._hundleDeleteElement);
+        this._delButton.addEventListener('click', this._hundleDeleteElement);
       
-        likeButton.addEventListener('click', this._toggleLike);
+        this._likeButton.addEventListener('click', this._toggleLike);
       
-        image.addEventListener('click', this._openPopupImg);
+        this._image.addEventListener('click', this._openPopupImg);
       
         return this._elementItem;
       };
