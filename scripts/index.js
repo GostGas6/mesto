@@ -37,7 +37,7 @@ function handleFormSubmitEdit(evt) {
 function addCard(evt) {
     evt.preventDefault(evt);
 
-    createCard({
+    renderCard({
         name: titleForm.value,
         link: linkForm.value
     });
@@ -63,11 +63,15 @@ const handleKey = (evt) => {
     };
 };
 
-const createCard = (element) => {
-    const createCard = new Card(element, elementTemplateOptions.templateSelector, openPopup)
-    const newCard =  templateCards.prepend(createCard.generateCard(element));
-    return newCard;
+const renderCard = (element) => {
+    const cardElement = createCard(element);
+    templateCards.prepend(cardElement.generateCard(element));
 };
+
+function createCard (element) {
+    const cardElement = new Card(element, elementTemplateOptions.templateSelector, openPopup);
+    return cardElement;
+}
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
@@ -84,7 +88,7 @@ buttonAdd.addEventListener('click', () => {
 });
 
 //функция добавление карт из "коробки"
-initialCards.forEach(createCard);
+initialCards.forEach(renderCard);
 
 const validatorAddForm = new FormValidator(validationOptions, formAdd, submitAddBtn);
 validatorAddForm.enableValidation();

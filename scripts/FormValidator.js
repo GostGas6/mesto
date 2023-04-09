@@ -42,11 +42,8 @@ class FormValidator {
         this._setInputState(inputElement, isValid);
     };
 
-    _toggleBtnState = (inputs) => {
-        const isFormValid = inputs.every((inputElement) => {
-            return inputElement.validity.valid;
-        });
-
+    _toggleBtnState = () => {
+        const isFormValid = this._form.checkValidity();
         if (isFormValid) {
             this._setButtonActive();
         } else {
@@ -60,10 +57,10 @@ class FormValidator {
         this._inputs.forEach(inputElement => {
             inputElement.addEventListener('input', () => {
                 this._toggleInputState(inputElement);
-                this._toggleBtnState(this._inputs);
+                this._toggleBtnState();
             });
         })
-        this._toggleBtnState(this._inputs)
+        this._toggleBtnState();
     };
     
     enableValidation() {
