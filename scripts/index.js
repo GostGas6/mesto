@@ -65,12 +65,12 @@ const handleKey = (evt) => {
 
 const renderCard = (element) => {
     const cardElement = createCard(element);
-    templateCards.prepend(cardElement.generateCard(element));
+    templateCards.prepend(cardElement);
 };
 
 function createCard (element) {
-    const cardElement = new Card(element, elementTemplateOptions.templateSelector, openPopup);
-    return cardElement;
+    const cards = new Card(element, 'element_template', openPopup);
+    return cards.generateCard();
 }
 
 function openPopup(popup) {

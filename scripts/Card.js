@@ -28,7 +28,7 @@ class Card {
 
     _toggleLike = (event) => {
         const eventTarget = event.target;
-        eventTarget.classList.toggle(options.likeBtnClass);
+        eventTarget.classList.toggle('element_like-active');
     };
 
     generateCard() {
