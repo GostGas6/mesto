@@ -1,0 +1,17 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "* HTML верстка, CSS, JavaScript как новый иснструмент разработки.\r * Figma, картинки.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.4"
+  },
+  "devDependencies": {
+    "webpack": "^5.79.0"
+  }
+}
