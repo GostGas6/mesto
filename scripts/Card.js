@@ -26,9 +26,8 @@ class Card {
         this._elementItem.remove();
     };
 
-    _toggleLike = (event) => {
-        const eventTarget = event.target;
-        eventTarget.classList.toggle('element_like-active');
+    _toggleLike = () => {
+        this._likeButton.classList.toggle('element_like-active');
     };
 
     generateCard() {
