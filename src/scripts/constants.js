@@ -25,9 +25,6 @@ const initialCards = [
     }
 ];
 
-const popupImage = document.querySelector('#popup_image');
-const imagePopup = popupImage.querySelector('.popup__image');
-const imagePopupHeading = popupImage.querySelector('.popup__text');
 
 const validationOptions = {
     formSelector: '.popup__form',
@@ -41,6 +38,7 @@ const validationOptions = {
 };
 
 const elementTemplateOptions = {
+    containerSelector: '.elements',
     templateSelector: 'element_template',
     elementSelector: '.element',
     elementTextSelector: '.element__title',
@@ -50,4 +48,12 @@ const elementTemplateOptions = {
     likeBtnClass: 'element_like-active'
 };
 
-export { initialCards, validationOptions, elementTemplateOptions, popupImage, imagePopup, imagePopupHeading }
+export const profileSelectors = {
+    avatarSelector: '.profile__avatar',
+    nameSelector: '.profile__title',
+    aboutSelector: '.profile__subtitle',
+    buttonEditSelector: '.profile__edit-button',
+    buttonAddSelector: '.profile__add-button'
+};
+
+export { initialCards, validationOptions, elementTemplateOptions }

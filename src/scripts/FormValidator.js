@@ -3,6 +3,7 @@ class FormValidator {
         this._form = form;
         this._options = validationOptions;
         this._submitElement = this._form.querySelector(this._options.submitButtonSelector);
+        this._inputs = Array.from(this._form.querySelectorAll(this._options.inputSelector));
     };
 
     _showError(errorElement, inputElement) {
@@ -60,7 +61,7 @@ class FormValidator {
                 this._toggleBtnState();
             });
         })
-        this._toggleBtnState();
+        this._toggleBtnState(this._inputs)
     };
     
     enableValidation() {
