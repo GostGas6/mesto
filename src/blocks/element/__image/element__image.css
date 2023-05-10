@@ -8,4 +8,5 @@
     background-color: #C4C4C4;
     object-fit: cover;
     display: block;
+    cursor: pointer;
 }

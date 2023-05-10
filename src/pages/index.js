@@ -28,12 +28,13 @@ const userInfo = new UserInfo({
     profileAboutSelector: '.profile__subtitle'
 })
 
-const renderCard = (element) => {
+const newCard = (element) => {
 
     const createCard = new Card(element, 'element_template', () => {
+        (link, name) => popupImage.open({name, link});
         popupImage.openPopup(element);
     });
-    return createCard.generateCard(element);
+    return createCard.generateCard();
 }
 
 const popupImage = new PicturePopup('.popup-image');
@@ -42,7 +43,7 @@ const popupImage = new PicturePopup('.popup-image');
 const cardSection = new Section({
     items: initialCards,
     renderer: (element) => {
-        cardSection.addItem(renderCard(element))
+        cardSection.addItem(newCard(element))
     }
 },
     elementTemplateOptions.containerSelector
@@ -61,11 +62,8 @@ const popupAddCard = new PopupWithForm(
     '#popup-add',
     {
         submitCallback: (values) => {
-            cardSection.addItem(renderCard({
-                name: values.place,
-                link: values.link
-            }));
-            validatorAddForm.setButtonInactive(submitAddBtn);
+            cardSection.addItem(newCard(values));
+            validatorAddForm.setButtonInactive();
             popupAddCard.closePopup()
         }
     }
@@ -85,10 +83,10 @@ buttonEdit.addEventListener('click', () => {
 
 cardSection.render();
 
-const validatorAddForm = new FormValidator(validationOptions, formAdd, submitAddBtn);
+const validatorAddForm = new FormValidator(validationOptions, formAdd);
 validatorAddForm.enableValidation();
 
-const validatorEditForm = new FormValidator(validationOptions, formEdit, submitEditBtn);
+const validatorEditForm = new FormValidator(validationOptions, formEdit);
 validatorEditForm.enableValidation();
 
 popupAddCard.setEventListeners();

@@ -2,7 +2,7 @@
 
 ### О том, что делал:
 
-* HTML верстка, CSS, JavaScript как новый иснструмент разработки.
+* HTML верстка, CSS, JavaScript, ООП, JS Babel, Webpack, DOM, БЭМ.
 * Figma, картинки.
 
 **Сайт**
