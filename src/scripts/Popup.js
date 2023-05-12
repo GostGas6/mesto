@@ -6,29 +6,29 @@ export default class Popup {
 
     _handleKey = (evt) => {
         if (evt.key === 'Escape') {
-            this.closePopup();
+            this.close();
         };
     };
 
     _handleOverlayClose = (evt) => {
         if (evt.target === evt.currentTarget) {
-            this.closePopup();
+            this.close();
         };
     };
 
-    openPopup() {
+    open() {
         this._popup.classList.add('popup_opened');
         document.addEventListener('keydown', this._handleKey);
     };
 
-    closePopup = () => {
+    close = () => {
         this._popup.classList.remove('popup_opened');
         document.removeEventListener('keydown', this._handleKey);
     };
 
     setEventListeners() {
         this._buttonClose.addEventListener('click', () => {
-            this.closePopup();
+            this.close();
         });
 
         this._popup.addEventListener('click', (evt) => {

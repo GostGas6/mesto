@@ -54,3 +54,7 @@ export const profileSelectors = {
     buttonEditSelector: '.profile__edit-button',
     buttonAddSelector: '.profile__add-button'
 };
+
+export const popupSelector = {
+    imagePopup: '.popup-image'
+  }
