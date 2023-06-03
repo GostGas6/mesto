@@ -44,7 +44,8 @@ export const elementTemplateOptions = {
     deleteBtnSelector: '.element__del-button',
     likeBtnSelector: '.element__like-button',
     imgSelector: '.element__image',
-    likeBtnClass: 'element_like-active'
+    likeBtnClass: 'element_like-active',
+    counterSelector: '.element__like-counter'
 };
 
 export const profileSelectors = {
@@ -52,9 +53,21 @@ export const profileSelectors = {
     nameSelector: '.profile__title',
     aboutSelector: '.profile__subtitle',
     buttonEditSelector: '.profile__edit-button',
-    buttonAddSelector: '.profile__add-button'
+    buttonAddSelector: '.profile__add-button',
+    buttonAvatarSelector: '.profile__avatar-overlay',
 };
 
 export const popupSelector = {
-    imagePopup: '.popup-image'
-  }
+    editProfile: '#popup_edit',
+    addCard: '#popup-add',
+    imagePopup: '.popup-image',
+    changeAvatar: '#popup-change-avatar',
+    confirmDelete: '#popup-confirm-delete',
+}
+
+export const formSelectors = {
+    formProfile: "profile-form",
+    formAdd: "profile-form",
+    formAvatar: "form-change-avatar",
+    submit: '.popup__button-save'
+}
