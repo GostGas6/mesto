@@ -6,8 +6,10 @@
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
-    min-width: 22px;
-    min-height: 19px;
+    width: 22px;
+    height: 19px;
+    right: 5px;
+    position: relative;
 }
 
 .element__like-button:hover {
