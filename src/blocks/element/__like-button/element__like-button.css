@@ -1,5 +1,6 @@
 .element__like-button {
     background-image: url(../../../images/__like.svg);
+    justify-content: end;
     background-color: #fff;
     background-position: center;
     background-repeat: no-repeat;

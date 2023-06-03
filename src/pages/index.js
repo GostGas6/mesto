@@ -3,7 +3,7 @@ import './index.css';
 import { elementTemplateOptions, validationOptions, initialCards, profileSelectors, popupSelector, formSelectors } from '../utils/constants.js';
 
 import Api from '../components/Api';
-import Card from '../components/card';
+import Card from '../components/Card';
 import FormValidator from '../components/FormValidator';
 import PopupWithImage from '../components/PopupWithImage';
 import PopupWithForm from '../components/PopupWithForm.js';

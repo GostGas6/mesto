@@ -12,27 +12,27 @@ export default class Api {
     };
 
     getProfile() {
-        return fetch(`${this._baseUrl}users/me`, {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-            .then(res => this._isResultOk(res))
+            .then(this._isResultOk)
     };
 
-    patchProfile(values) {
-        return fetch(`${this._baseUrl}users/me`, {
+    patchProfile(data) {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
-            body: JSON.stringify(values)
+            body: JSON.stringify(data)
         })
-            .then(res => this._isResultOk(res))
+            .then(this._isResultOk)
     };
 
-    setUserAvatar({ link }) {
+    setUserAvatar({ data }) {
         return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
-                avatar: link
+                avatar: data.link
             })
         })
             .then(res => this._isResultOk(res))
@@ -41,16 +41,19 @@ export default class Api {
     getCard() {
         return fetch(`${this._baseUrl}cards`, {
             headers: this._headers
-        }).then(res => this._isResultOk(res))
+        }).then(this._isResultOk)
     };
 
     postCard(data) {
         return fetch(`${this._baseUrl}cards`, {
             method: 'POST',
             headers: this._headers,
-            body: JSON.stringify(data)
+            body: JSON.stringify({
+                name: data.name,
+                link: data.link,
+              })
         })
-            .then(res => this._isResultOk(res))
+            .then(this._isResultOk)
     };
 
     deleteCard(cardId) {
@@ -62,10 +65,11 @@ export default class Api {
     }
 
     like(cardId, isLiked) {
-        return fetch(`${this._baseUrl}cards/${cardId}/likes`, {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
             method: isLiked ? 'DELETE' : 'PUT',
             headers: this._headers
         })
             .then((res) => this._isResultOk(res))
     }
+
 };

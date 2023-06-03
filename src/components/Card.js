@@ -33,8 +33,9 @@ export default class Card {
     };
 
     like = ({ likes }) => {
+        console.log(likes.length)
         this._likeButton.classList.toggle(options.likeBtnClass);
-        this._counterSelector.textContent = this._likes.length;
+        this._counterSelector.textContent = this.likes.length;
     };
 
     deleteCard(card) {
@@ -45,7 +46,7 @@ export default class Card {
 
     _toggleLike = () => {
         this._likeButton.classList.toggle('element_like-active');
-        this._counter.textContent = likes.length;
+        this._counter.textContent = this.likes.length;
     };
 
     _setEventListeners() {
