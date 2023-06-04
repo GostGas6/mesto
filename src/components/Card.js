@@ -38,8 +38,8 @@ export default class Card {
         this._counterSelector.textContent = this.likes.length;
     };
 
-    deleteCard(card) {
-        this._elementItem.remove(card);
+    deleteCard() {
+        this._elementItem.remove();
         this._elementItem = null;
     }
 

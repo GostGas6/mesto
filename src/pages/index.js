@@ -1,6 +1,6 @@
 import './index.css';
 
-import { elementTemplateOptions, validationOptions, initialCards, profileSelectors, popupSelector, formSelectors } from '../utils/constants.js';
+import { elementTemplateOptions, validationOptions, profileSelectors, popupSelector, formSelectors } from '../utils/constants.js';
 
 import Api from '../components/Api';
 import Card from '../components/Card';
@@ -83,6 +83,7 @@ const popupAddCard = new PopupWithForm(
         }
     }
 );
+
 
 const popupImage = new PopupWithImage(popupSelector.imagePopup);
 
