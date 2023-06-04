@@ -11,64 +11,64 @@ export default class Api {
         return Promise.reject(`Ошибка: ${res.status}`)
     };
 
-    async getProfile() {
-        const res = await fetch(`${this._baseUrl}/users/me`, {
+    getProfile() {
+        return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
     };
 
-    async patchProfile(data) {
-        const res = await fetch(`${this._baseUrl}/users/me`, {
+    patchProfile(data) {
+        return fetch(`${this._baseUrl}/users/me`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify(data)
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
     };
 
-    async setUserAvatar({ link }) {
-        const res = await fetch(`${this._baseUrl}/users/me/avatar`, {
+    setUserAvatar({ link }) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this._headers,
             body: JSON.stringify({
                 avatar: link
             })
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
     };
 
-    async getCard() {
-        const res = await fetch(`${this._baseUrl}/cards`, {
+    getCard() {
+        return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
     };
 
-    
-    async postCard(data) {
-        const res = await fetch(`${this._baseUrl}/cards`, {
+
+    postCard(data) {
+        return fetch(`${this._baseUrl}/cards`, {
             method: 'POST',
             headers: this._headers,
             body: JSON.stringify(data)
-        })
-        return this._isResultOk(res)
+        }).then(this._isResultOk)
     };
 
-    async deleteCard(cardId) {
-        const res = await fetch(`${this._baseUrl}/cards/${cardId}`, {
+    deleteCard(cardId) {
+        return fetch(`${this._baseUrl}/cards/${cardId}`, {
             method: 'DELETE',
             headers: this._headers
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
     }
 
-    async like(cardId, isLiked) {
-        const res = await fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-            method: isLiked ? 'DELETE' : 'PUT',
+    like(cardId) {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+            method: 'PUT',
             headers: this._headers
-        });
-        return this._isResultOk(res);
+        }).then(this._isResultOk)
+    }
+
+    dislike(cardId) {
+        return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+            method: 'DELETE',
+            headers: this._headers
+        }).then(this._isResultOk)
     }
 
 };

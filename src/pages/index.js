@@ -1,5 +1,5 @@
 import './index.css';
-
+import { elementTemplateOptions as options } from '../utils/constants.js';
 import { elementTemplateOptions, validationOptions, profileSelectors, popupSelector, formSelectors } from '../utils/constants.js';
 
 import Api from '../components/Api';
@@ -26,7 +26,7 @@ const buttonAvatarSubmit = formAvatar.querySelector(formSelectors.submit);
 let userCurrentId;
 
 const api = new Api({
-    url: 'https://mesto.nomoreparties.co/v1/cohort-66/',
+    url: 'https://mesto.nomoreparties.co/v1/cohort-66',
     headers: {
         authorization: '9ba3c65d-9fc0-499b-9856-0cae59cb26f0',
         'content-type': 'application/json'
@@ -55,8 +55,8 @@ const popupProfile = new PopupWithForm(
         submitCallback: (values) => {
             popupProfile.renderLoading(true, 'Сохранение...');
             api.patchProfile(values)
-                .then((values) => {
-                    userInfo.setUserInfo(values);
+                .then((resp) => {
+                    userInfo.setUserInfo(resp);
                     popupProfile.close();
                 })
                 .catch((err) => console.log(err))
@@ -70,7 +70,7 @@ const popupAddCard = new PopupWithForm(
         submitCallback: (values) => {
             popupAddCard.renderLoading(true, 'Сохранение...')
             api.postCard({
-                name: values.place,
+                name: values.name,
                 link: values.link
             })
                 .then((newCard) => {
@@ -124,19 +124,28 @@ const popupConfirmDelete = new PopupWithConfirm(
 
 const createCard = (element) => {
 
-    const newCard = new Card(element, elementTemplateOptions.templateSelector, {
+    const newCard = new Card(element, elementTemplateOptions.templateSelector, options, {
         userId: userCurrentId,
         handleCardClick: () => {
             popupImage.open(element)
         }, confirmDelete: () => {
             popupConfirmDelete.open(newCard)
         }, handleLikeCard: () => {
+            console.log[newCard.likes]
             api.like(newCard.cardId, newCard.isLiked(newCard.likes))
                 .then(res => {
                     newCard.like(res)
                 })
                 .catch(err => console.log(err))
-        }
+        }, handleDisikeCard: () => {
+            console.log[newCard.likes]
+            api.dislike(newCard.cardId, newCard.isLiked(newCard.likes))
+                .then(res => {
+                    newCard.like(res)
+                })
+                .catch(err => console.log(err))
+        },
+
     }
     );
 
@@ -149,7 +158,6 @@ const renderPage = () => {
         api.getProfile()
     ]).then(([cardResult, profileResult]) => {
         userCurrentId = profileResult._id;
-        console.log(cardResult)
         cardSection.render(cardResult)
         userInfo.setUserInfo(profileResult)
     })

@@ -8,14 +8,14 @@ export default class UserInfo {
     getUserInfo() {
         return {
             name: this._titleForm.textContent,
-            job: this._linkForm.textContent,
+            about: this._linkForm.textContent,
             avatar: this._profileAvatar.src
         };
     };
 
-    setUserInfo({ name, job, avatar, _id }) {
+    setUserInfo({ name, about, avatar, _id }) {
         this._titleForm.textContent = name;
-        this._linkForm.textContent = job;
+        this._linkForm.textContent = about;
         this._profileAvatar.src = avatar;
         this._profileID = _id;
     };
