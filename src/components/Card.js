@@ -29,9 +29,7 @@ export default class Card {
     };
 
     isLiked(likes) {
-        console.log
         return likes.some(user => {
-            console.log(user._id === this._userId)
             user._id === this._userId;
         })
     };
@@ -45,7 +43,6 @@ export default class Card {
         } else {
             this.handleLikeCard(this._element.cardId);
         }
-
 
         // if (!likes.length) {
         //     this._likeButton.classList.remove(this._options.likeBtnClass)
@@ -92,8 +89,8 @@ export default class Card {
     };
 
     _toggleLike = () => {
-        // this._likeButton.classList.toggle('element_like-active');
-        // this._counter.textContent = this.likes.length;
+        this._likeButton.classList.toggle('element_like-active');
+        this._counter.textContent = this.likes.length;
 
         this._handleLikeCard(this.cardId, this.isLiked)
     };
