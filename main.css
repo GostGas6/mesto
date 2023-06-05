@@ -14,10 +14,10 @@
 .element{background-color:#fff;border-radius:10px;margin:0 auto;max-width:282px;min-height:361px;padding:0;position:relative;width:100%}
 .element__image{background-color:#c4c4c4;background-position:50%;background-size:cover;border-radius:10px 10px 0 0;cursor:pointer;display:block;height:282px;max-width:282px;-o-object-fit:cover;object-fit:cover;width:100%}
 .element__like-button{background-color:#fff;background-image:url(e3b9ba5840ebe97bc077.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;height:19px;justify-content:end;position:relative;right:5px;width:22px}.element__like-button:hover{opacity:.5;transition:all .3s}
+.element__like-button_active{background-image:url(e787eeb70bb65b7b453a.svg)}.element__like-button_active:hover{opacity:.6;transition:all .3s}
 .element__title{color:#000;font-size:24px;font-weight:900;line-height:1.21;margin:0;overflow:hidden;padding:0;text-overflow:ellipsis;white-space:nowrap}
 .element__container{align-items:center;color:#000;display:flex;justify-content:space-between;margin:21px 15px 25px 21px;width:246px}
 .element__del-button{background-color:transparent;background-image:url(823b0cf1b0b7e9cb7cad.svg);background-position:50%;background-repeat:no-repeat;background-size:cover;border:none;cursor:pointer;height:19px;position:absolute;right:20px;top:20px;width:18px}.element__del-button:hover{opacity:.6;transition:all .3s}
-.element_like-active{background-image:url(e787eeb70bb65b7b453a.svg)}.element_like-active:hover{opacity:.6;transition:all .3s}
 .footer{color:#545454;font-size:18px;line-height:22px;margin-bottom:60px;margin-left:200px;margin-top:67px;max-width:318px}@media screen and (max-width:680px){.footer{font-size:14px;line-height:17px;margin:48px auto 36px;max-width:282px}}@media screen and (max-width:320px){.footer{margin:48px 19px 36px}}
 .popup{align-items:center;background-color:rgba(0,0,0,.5);bottom:0;display:flex;flex-direction:column;height:100vh;justify-content:center;left:0;opacity:0;pointer-events:none;position:fixed;right:0;top:0;transition:all .5s;width:100%}
 .popup_opened{opacity:1;pointer-events:all;transition:all .5s}
