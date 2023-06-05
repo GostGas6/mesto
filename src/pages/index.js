@@ -130,16 +130,14 @@ const createCard = (element) => {
             popupImage.open(element)
         }, confirmDelete: () => {
             popupConfirmDelete.open(newCard)
-        }, handleLikeCard: () => {
-            console.log[newCard.likes]
-            api.like(newCard.cardId, newCard.isLiked(newCard.likes))
+        }, handleLikeCard: (cardId) => {
+            api.like(cardId)
                 .then(res => {
                     newCard.like(res)
                 })
                 .catch(err => console.log(err))
-        }, handleDisikeCard: () => {
-            console.log[newCard.likes]
-            api.dislike(newCard.cardId, newCard.isLiked(newCard.likes))
+        }, handleDislikeCard: (cardId) => {
+            api.dislike(cardId)
                 .then(res => {
                     newCard.like(res)
                 })
